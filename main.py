@@ -15,7 +15,7 @@ def clear_fake():
     print('\n' * 50)
 
 class Target:
-    def __init__(self, num_items: int = 20, min_val: int = 1, max_val: int = 45):
+    def __init__(self, num_items: int = 30, min_val: int = 1, max_val: int = 50):
         self.num_items = num_items
         self.min_val = min_val
         self.max_val = max_val
@@ -32,7 +32,7 @@ class Target:
         return str(self._target)
 
     def _print_status(self):
-        #clear()
+        clear()
         #clear_fake()
         self._frame += 1
         print(f'''Frame [{self._frame}]''')
@@ -41,7 +41,10 @@ class Target:
             for val in self._target:
                 if val < height:
                     if val == height - 1:
-                        bars.append(str(val))
+                        if val < 10:
+                            bars.append(str(val) + ' ')
+                        else:
+                            bars.append(str(val))
                     else:
                         bars.append('  ')
                 else:
